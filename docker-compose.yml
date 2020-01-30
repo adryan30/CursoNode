@@ -1,0 +1,12 @@
+version: "3"
+
+services: 
+  db:
+    image: postgres
+    restart: always
+    environment: 
+      POSTGRES_USER: curso
+      POSTGRES_PASSWORD: curso
+      POSTGRES_DB: curso
+    ports: 
+      - 5454:5432
