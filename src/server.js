@@ -1,12 +1,11 @@
-import express from 'express';
-import routes from './routes'
-import db from './db'
+import express from "express";
+import routes from "./routes";
+import db from "./db";
 
-const app = express()
-db.authenticate()
+const app = express();
+db.authenticate();
 
+app.use(express.json());
+app.use(routes);
 
-app.use(express.json())
-app.use(routes)
-
-app.listen(3333)
+app.listen(3333);

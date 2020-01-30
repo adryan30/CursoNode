@@ -1,10 +1,9 @@
-import axios from 'axios';
+import axios from "axios";
 
 const apiGit = axios.create({
-    baseURL: "https://api.github.com/users/"
-})
+  baseURL: "https://api.github.com/users/"
+});
 
-const getUser = (username) => apiGit.get(username)
+const getUser = username => apiGit.get(username);
 
-
-export default { getUser }
+export default { getUser };
