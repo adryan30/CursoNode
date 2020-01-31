@@ -10,6 +10,9 @@ class User extends Model {
       sequelize
     })
   }
+  static associate(models){
+    this.hasMany(models.Repo, {onDelete:"CASCADE", foreignKey: "user_id", as: "repos"})
+  }
 }
 
 export default User

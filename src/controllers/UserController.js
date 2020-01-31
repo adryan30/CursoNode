@@ -1,4 +1,5 @@
 import User from '../db/models/user'
+import API from '../services/apiGit'
 
 export default {
     async index(req, res) {
@@ -7,9 +8,20 @@ export default {
     },
 
     async store(req, res) {
-        // const {username, password} = req.body
-        const user = await User.create(req.body)
-        return res.json(user)
+        const { username, password } = req.body
+        const userExists = await User.findOne({where: { username } })
+        if (userExists) {
+            return res.status(302).json({error: "Usuário já cadastrado!"})
+        }
+        const userData = await API.getUser(username)
+        if (!userData) {
+            return res.status(404).json({error: "Usuário não encontrado!"})
+        }
+
+        const user = await User.create({username, password})
+        res.json(user)
+        return await RepoController.store(user.id, username)       
+
     }
 }
 
