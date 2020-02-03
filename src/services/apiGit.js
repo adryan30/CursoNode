@@ -5,5 +5,6 @@ const apiGit = axios.create({
 });
 
 const getUser = username => apiGit.get(username);
+const getRepos = username => apiGit.get(username + "/repos");
 
-export default { getUser };
+export default { getUser, getRepos };

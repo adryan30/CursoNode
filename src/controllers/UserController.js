@@ -1,4 +1,5 @@
 import User from "../db/models/user";
+import RepoController from './RepoController'
 import API from "../services/apiGit";
 
 export default {
@@ -32,7 +33,3 @@ export default {
     return await RepoController.store(user.id, username);
   }
 };
-
-// const { username } = req.body
-//         const response = await API.getUser(username)
-//         return res.json(response.data)
