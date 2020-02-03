@@ -1,7 +1,8 @@
 {
   "name": "curso",
   "scripts": {
-    "start": "nodemon src/server.js"
+    "start": "nodemon src/server.js",
+    "start:docker": "docker-compose up"
   },
   "dependencies": {
     "axios": "^0.19.2",
